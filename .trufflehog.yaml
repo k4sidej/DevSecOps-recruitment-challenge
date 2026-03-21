@@ -1,0 +1,36 @@
+# TruffleHog custom regex detectors for this repo.
+# These are intentionally simple so hardcoded credentials in src/ are flagged
+# even if they don't match real AWS/Stripe formats.
+
+detectors:
+  - name: FlowAccountAWSAccessKeyId
+    keywords:
+      - accessKeyId
+    regex:
+      secret: "accessKeyId\\s*:\\s*['\"]([^'\"]{8,})['\"]"
+
+  - name: FlowAccountAWSSecretAccessKey
+    keywords:
+      - secretAccessKey
+    regex:
+      secret: "secretAccessKey\\s*:\\s*['\"]([^'\"]{8,})['\"]"
+
+  - name: FlowAccountStripeSecretKey
+    keywords:
+      - stripe
+      - secretKey
+    regex:
+      secret: "secretKey\\s*:\\s*['\"]([^'\"]{8,})['\"]"
+
+  - name: FlowAccountStripeWebhookSecret
+    keywords:
+      - webhookSecret
+    regex:
+      secret: "webhookSecret\\s*:\\s*['\"]([^'\"]{8,})['\"]"
+
+  - name: FlowAccountPostgresPassword
+    keywords:
+      - password
+      - Pool
+    regex:
+      secret: "password\\s*:\\s*['\"]([^'\"]{8,})['\"]"
