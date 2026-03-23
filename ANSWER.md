@@ -20,7 +20,6 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
-      issues: write
 ```
 This section defines the job(s) to be executed. We have a single job named `scan`:
 - `name`: Sets the display name of the job in the GitHub UI to "Gitleaks Security Scan".
@@ -153,7 +152,6 @@ The workflow declares the necessary permissions in the `permissions` block at th
     permissions:
       contents: read
       pull-requests: write
-      issues: write
 ```
 
 - **`pull-requests: write`** is the key permission that grants the ability to post comments on pull requests.
