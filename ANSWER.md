@@ -27,7 +27,7 @@ This section defines the job(s) to be executed. We have a single job named `scan
 - `runs-on`: Specifies that the job will run on the latest available Ubuntu virtual machine provided by GitHub.
 - `permissions`: Grants specific, limited permissions to the `GITHUB_TOKEN` for this job.
   - `contents: read`: Allows the job to check out the repository code.
-  - `pull-requests: write` / `issues: write`: Allows the job to post comments on the pull request.
+  - `pull-requests: write`: Allows the job to post comments on the pull request.
 
 
 ```yaml
@@ -156,5 +156,5 @@ The workflow declares the necessary permissions in the `permissions` block at th
       issues: write
 ```
 
-- **`pull-requests: write`** is the key permission that grants the ability to post comments on pull requests. The `issues: write` permission provides similar access, as PRs are technically a type of issue.
+- **`pull-requests: write`** is the key permission that grants the ability to post comments on pull requests.
 - **`contents: read`** is also required to allow the `actions/checkout` step to read the repository's code.
